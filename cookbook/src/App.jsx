@@ -1,73 +1,51 @@
-import { useState } from 'react'
+import React from 'react';
+import './App.css';
 
-function App() {
-  const [recipes, setRecipes] = useState([])
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [content, setContent] = useState('')
 
-  const handleAddRecipe = (e) => {
-    e.preventDefault()
-    const newRecipe = {
-      id: Date.now(),
-      title,
-      description,
-      content,
-    }
-    setRecipes([...recipes, newRecipe])
-    setTitle('')
-    setDescription('')
-    setContent('')
+const recipes = [
+  {
+    id: 1,
+    title: "Carrot Pea Pasta",
+    servings: "For 3 people",
+    ingredients: [
+      "5 carrots",
+      "1 can of peas",
+      "Olive oil",
+      "300g pasta",
+      "1 onion"
+    ],
+    instructions: `Chop the onion and sauté it in olive oil until translucent. Add finely chopped carrots and peas to the pan and cook until tender. Transfer the vegetables to a blender and blend into a creamy sauce. Add water if needed. Cook the pasta and drain the water. Mix the sauce with the pasta. Season with salt and pepper to taste.`
   }
+];
 
+const App = () => {
   return (
-    <div style={{ padding: '2rem', maxWidth: '600px', margin: '0 auto' }}>
-      <h1>Kokkikirja</h1>
+    <div className="home-container">
+  <div className="contentHome">
+    <h1 className="titleHome">B:n Cookbook</h1>
+    <p className="descriptionHome">Learn to cook Italian cuisine with our apartment</p>
 
-      <form onSubmit={handleAddRecipe} style={{ marginBottom: '2rem' }}>
-        <div>
-          <label>Otsikko</label><br />
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-            style={{ width: '100%' }}
-          />
+    {recipes.map(recipe => (
+      <div key={recipe.id} className="recipe">
+        <h2 className="recipe-title">{recipe.title}</h2>
+        <p className="recipe-servings">{recipe.servings}</p>
+        <div className="recipe-ingredients">
+          <h3>What you need:</h3>
+          <ul>
+            {recipe.ingredients.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
         </div>
-        <div>
-          <label>Kuvaus</label><br />
-          <input
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-            style={{ width: '100%' }}
-          />
+        <div className="recipe-instructions">
+          <h3>Instructions:</h3>
+          <p>{recipe.instructions}</p>
         </div>
-        <div>
-          <label>Ohjeet ja ainekset</label><br />
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-            rows="5"
-            style={{ width: '100%' }}
-          />
-        </div>
-        <button type="submit" style={{ marginTop: '1rem' }}>Lisää resepti</button>
-      </form>
+      </div>
+    ))}
+  </div>
+</div>
+  );
+};
 
-      <h2>Reseptit</h2>
-      {recipes.map((recipe) => (
-        <div key={recipe.id} style={{ borderBottom: '1px solid #ccc', marginBottom: '1rem' }}>
-          <h3>{recipe.title}</h3>
-          <p><em>{recipe.description}</em></p>
-          <pre>{recipe.content}</pre>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-export default App
+export default App;
