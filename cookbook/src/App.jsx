@@ -16,17 +16,18 @@ const recipes = [
     instructions: `Chop the onion and sauté it in olive oil until translucent. Add finely chopped carrots and peas to the pan and cook until tender. Transfer the vegetables to a blender and blend into a creamy sauce. Add water if needed. Cook the pasta and drain the water. Mix the sauce with the pasta. Season with salt and pepper to taste.`
   },
   {
-    id: 'carrot-pea-pasta-2',
-    title: "Carrot Pea Pasta",
-    servings: "For 3 people",
+    id: 'Fennel-salad',
+    title: "Fennel salad",
+    servings: "For 4 people",
     ingredients: [
-      "5 carrots",
-      "1 can of peas",
-      "Olive oil",
-      "300g pasta",
-      "1 onion"
+      "3 Fennels",
+      "1 Lemon",
+      "3 tbsp Olive oil",
+      "2 tbsp Honey",
+      "Salt",
+      "Pepper"
     ],
-    instructions: `Chop the onion and sauté it in olive oil until translucent. Add finely chopped carrots and peas to the pan and cook until tender. Transfer the vegetables to a blender and blend into a creamy sauce. Add water if needed. Cook the pasta and drain the water. Mix the sauce with the pasta. Season with salt and pepper to taste.`
+    instructions: `Slice the fennels into thin strips and place them in a serving bowl. Add the juice of one lemon and the honey. Generously add olive oil, pepper, and salt to taste. Mix well and serve.`
   }
 ];
 
